@@ -31,16 +31,17 @@
 
 
 
-      $scope.model.twitchChannelSource = '<iframe '+
-    'src="https://player.twitch.tv/?channel=dallas&' +
-    'parent='+$scope.embedDomain +
-    '&muted=true" '+
-    'height="720" '+
-    'width="1280" '+
-    'frameborder="0" '+
-    'scrolling="no" '+
-    'allowfullscreen="true">'+
-        '</iframe>';
+    $scope.model.twitchChannelSource = '<iframe ' +
+      'src="https://player.twitch.tv/?' +
+      'channel=' + $scope.model.twitchChannelId +
+      '&parent=' + $scope.embedDomain +
+      '&muted=true" ' +
+      'height="720" ' +
+      'width="1280" ' +
+      'frameborder="0" ' +
+      'scrolling="no" ' +
+      'allowfullscreen="true">' +
+      '</iframe>';
 
     $scope.change();
     $scope.deliberatelyTrustDangerousSnippet = function (s) {
