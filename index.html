@@ -1,0 +1,91 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular-sanitize.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="script.js"></script>
+</head>
+
+<body ng-app="testApp">
+  <div ng-controller="testController as test">
+    <div class="container">
+      <div class="card">
+        <h2>
+          1) YouTube Channel Embed
+        </h2>
+        <form>
+
+          <label>Channel ID (https://www.youtube.com/account_advanced)</label>
+
+          <input type="text" class="form-control" ng-model="model.channelId" ng-change="change()"/>
+
+        </form>
+
+        <hr>
+
+        <div ng-bind-html="deliberatelyTrustDangerousSnippet(model.channelSource)"></div>
+        <h3>Code Snippet</h3>
+        <pre>
+        <code>
+          {{model.channelSource}}
+        </code>
+        </pre>
+      </div>
+      <hr>
+
+      <div class="card">
+        <h1>
+          2) YouTube Single Video Embed
+        </h1>
+        <form>
+
+          <label>Video ID</label>
+
+          <input type="text" class="form-control" ng-model="model.videoId" ng-change="change()"/>
+
+        </form>
+
+        <hr>
+
+        <div ng-bind-html="deliberatelyTrustDangerousSnippet(model.videoSource)"></div>
+        <h3>Code Snippet</h3>
+        <pre>
+        <code>
+          {{model.videoSource}}
+        </code>
+        </pre>
+      </div>
+
+      <hr>
+
+      <div class="card">
+        <h2>
+          3) Faceboook Embed Video
+        </h2>
+        <form>
+
+          <label>Video ID</label>
+
+          <input type="text" class="form-control" ng-model="model.facebookVideoId" ng-change="change()"/>
+
+        </form>
+
+        <hr>
+
+        <div ng-bind-html="deliberatelyTrustDangerousSnippet(model.facebookChannelSource)"></div>
+        <h3>Code Snippet</h3>
+        <pre>
+        <code>
+          {{model.facebookChannelSource}}
+        </code>
+        </pre>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
