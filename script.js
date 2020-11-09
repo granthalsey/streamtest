@@ -28,16 +28,19 @@
 
     };
 
-    $scope.model.twitchChannelSource = '<iframe ' +
-      'src="https://player.twitch.tv/?channel=phil_nash&parent='+
-      $scope.embedDomain+
-      '&autoplay=false" ' +
-      'frameborder="0" ' +
-      'scrolling="no" ' +
-      'allowfullscreen="true" ' +
-      'height="100%" ' +
-      'width = "100%" > ' +
-      '</iframe>';
+
+
+
+      $scope.model.twitchChannelSource = '<iframe '+
+    'src="https://player.twitch.tv/?channel=dallas&' +
+    'parent='+$scope.embedDomain +
+    '&muted=true" '+
+    'height="720" '+
+    'width="1280" '+
+    'frameborder="0" '+
+    'scrolling="no" '+
+    'allowfullscreen="true">'+
+        '</iframe>';
 
     $scope.change();
     $scope.deliberatelyTrustDangerousSnippet = function (s) {
