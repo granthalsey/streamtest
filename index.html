@@ -2,18 +2,43 @@
 
 <head>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular-sanitize.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<script src="script.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular-sanitize.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="script.js"></script>
   <style>
-    .card{padding: 2em;}
-    </style>
+    .card {
+      padding: 2em;
+    }
+  </style>
 </head>
 
 <body ng-app="testApp">
   <div ng-controller="testController as test">
+
     <div class="container">
+      <h1>
+        Livestream Test Embeds
+      </h1>
+      <div class="card">
+        <h2>
+          Options
+        </h2>
+          <form>
+            <div class="form-check">
+              <input type="checkbox" ng-model="model.autoplay" class="form-check-input" id="autoplay" ng-change="change()">
+              <label class="form-check-label" for="autoplay">Autoplay</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" ng-model="model.mute" class="form-check-input" id="mute" ng-change="change()">
+              <label class="form-check-label" for="mute">Mute by default</label>
+            </div>
+          </form>
+        </h2>
+        </div>
+      <hr>
       <div class="card">
         <h2>
           1) YouTube Channel Embed
@@ -22,11 +47,11 @@
 
           <label>Channel ID (https://www.youtube.com/account_advanced)</label>
 
-          <input type="text" class="form-control" ng-model="model.channelId" ng-change="change()"/>
+          <input type="text" class="form-control" ng-model="model.channelId" ng-change="change()" />
 
         </form>
 
-        <hr>
+        <hr />
 
         <div ng-bind-html="deliberatelyTrustDangerousSnippet(model.channelSource)"></div>
         <h3>Code Snippet</h3>
@@ -36,7 +61,7 @@
         </code>
         </pre>
       </div>
-      <hr>
+      <hr />
 
       <div class="card">
         <h1>
@@ -46,7 +71,7 @@
 
           <label>Video ID</label>
 
-          <input type="text" class="form-control" ng-model="model.videoId" ng-change="change()"/>
+          <input type="text" class="form-control" ng-model="model.videoId" ng-change="change()" />
 
         </form>
 
@@ -61,7 +86,7 @@
         </pre>
       </div>
 
-      <hr>
+      <hr />
 
       <div class="card">
         <h2>
@@ -71,7 +96,7 @@
 
           <label>Video ID</label>
 
-          <input type="text" class="form-control" ng-model="model.facebookVideoId" ng-change="change()"/>
+          <input type="text" class="form-control" ng-model="model.facebookVideoId" ng-change="change()" />
 
         </form>
 
@@ -86,8 +111,33 @@
         </pre>
 
       </div>
+
+      <hr>
+
+      <div class="card">
+        <h2>
+          4) Twitch Channel Video
+        </h2>
+        <form>
+
+          <label>Twitch Channel Id</label>
+
+          <input type="text" class="form-control" ng-model="model.twitchChannelId" ng-change="change()" />
+
+        </form>
+
+        <hr>
+
+        <div ng-bind-html="deliberatelyTrustDangerousSnippet(model.twitchChannelSource)"></div>
+        <h3>Code Snippet</h3>
+        <pre>
+        <code>
+          {{model.twitchChannelSource}}
+        </code>
+        </pre>
+
+      </div>
     </div>
-  </div>
 
 </body>
 
